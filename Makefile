@@ -1,9 +1,9 @@
 NAME = fractol
-SRCS = $(shell find "." -d 1 -name "*c")
+SRCS = $(shell find "." -name "*c")
 OBJS = ${SRCS:.c=.o}
 LIBFT = ./Libft/libft.a
 CC = gcc
-RM = rm -f
+RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 AR = ar csr
 
@@ -11,21 +11,17 @@ AR = ar csr
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit main.c -o $(NAME) && ./fractol
+	$(CC) -lmlx -framework OpenGL -framework AppKit *.c -o $(NAME) && ./fractol
 
 all : ${NAME}
 
 clean :
-	${NAME}
+	#${NAME}
 	${RM} ${OBJS}
 
 fclean : clean
 	${RM} ${NAME}
 
 re : fclean all
-
-# compile : ${NAME}
-# 	@gcc fractol main.c && ./fractol
-
 
 .PHONY : all clean fclean re .c.o
