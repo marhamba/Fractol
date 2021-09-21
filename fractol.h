@@ -4,6 +4,7 @@
 
 #include <mlx.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 typedef struct	s_data {
@@ -13,6 +14,12 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }				t_data;
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
 
 void	print_triangle(t_data img);
 void	print_square(t_data img);

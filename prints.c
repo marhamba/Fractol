@@ -42,10 +42,15 @@ void	print_circle(t_data img, int x0, int y0, int r)
 
 	x = 0;
 	y = 0;
-	while (x < 202)
+	while (y < 202)
 	{
-		if (((pow((x - x0), 2) + pow((y - y0), 2) == r*r)))
-			my_mlx_pixel_put(&img, x, y, 0x00FF0000);
-		x++;
+		x = 0;
+		while (x < 202)
+		{
+			if(((x - x0)*(x - x0)) +((y - y0)*(y - y0)) <= r*r)
+				my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+			x++;
+		}
+		y++;
 	}
 }
